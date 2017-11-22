@@ -3,18 +3,16 @@ package me.jrmensah.roboresumesec;
 
 
 
-import javax.validation.constraints.NotNull;
+@Entity
+@Table(name="USER_DATA");
 import java.util.Collection;
 
-@Entity
-@Table(name="USER_DATA")
 public class UserData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-    @NotNull
+    
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -39,6 +37,13 @@ public class UserData {
     private Collection<UserRole> roles;
 
     public UserData(String email, String password, String firstName, String lastName, boolean enabled, String username) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.enabled = enabled;
+        this.username = username;
+        this.roles = roles;
     }
 
     public UserData(String email, String password, String firstName, String lastName, String enabled, String username, Collection<UserRole> roles) {
