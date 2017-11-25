@@ -1,6 +1,5 @@
 package me.jrmensah.roboresumesec;
 
-import me.jrmensah.roboresumesec.resume.Resume;
 import me.jrmensah.roboresumesec.skills.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
