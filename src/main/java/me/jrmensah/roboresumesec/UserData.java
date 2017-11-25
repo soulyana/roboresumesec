@@ -32,7 +32,7 @@ public class UserData {
     @Column(name = "username")
     private String username;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(joinColumns = @JoinColumn(name= "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<UserRole> roles;

@@ -4,27 +4,55 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Resume {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+
+    @NotNull
+    @Size(min=2)
     private String firstName;
+    @NotNull
     private String middleInit;
+    @NotNull
+    @Size(min=2)
     private String lastName;
+    @NotNull
+    @Size(min=2)
     private String email;
+    @NotNull
+    @Size(min=3)
     private String college;
+    @NotNull
+    @Size(min=2)
     private String degree;
+    @NotNull
+    @Size(min=3)
     private String major;
+    @NotNull
+    @Size(min=2)
     private String year;
+    @NotNull
+    @Size(min=3)
     private String skill;
+    @NotNull
+    @Size(min=3)
     private String workplace;
+    @NotNull
+    @Size(min=3)
     private String workTitle;
+    @NotNull
+    @Size(min=3)
     private String duty;
+    @NotNull
+    @Size(min=3)
     private String level;
 
-    public Resume() {
+    public Resume(String john, String s, String s1, String s2, String bs, String psychology, String uMaryland, String s3, String php, String amtrak, String developer, String duty1, String duty2, String highly_skilled) {
     }
 
     public Resume(String firstName, String middleInit, String lastName, String email, String college, String degree, String major, String year, String skill, String workplace, String workTitle, String duty, String level) {
@@ -41,6 +69,10 @@ public class Resume {
         this.workTitle = workTitle;
         this.duty = duty;
         this.level = level;
+    }
+
+    public Resume() {
+
     }
 
     public int getId() {
@@ -154,4 +186,7 @@ public class Resume {
     public void setLevel(String level) {
         this.level = level;
     }
+
+
+
 }
