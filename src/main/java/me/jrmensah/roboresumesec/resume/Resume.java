@@ -9,6 +9,7 @@ public class Resume {
     private ArrayList<Job> experience;
     private ArrayList<Skill> expertise;
 
+
     public Resume() {
         this.name = name;
         education = new ArrayList<College>();
@@ -70,4 +71,6 @@ public class Resume {
 
     private class College {
     }
+
+
 }

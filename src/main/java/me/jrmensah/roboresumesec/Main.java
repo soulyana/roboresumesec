@@ -223,6 +223,18 @@ public class Main {
 
     }
 
+    private static class College {
+        public String degree;
+    }
+
+    private static class Job {
+    }
+
+    private static class Skill {
+    }
+
+    private static class Resume {
+    }
 }
 
 

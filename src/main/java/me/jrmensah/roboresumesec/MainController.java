@@ -1,5 +1,7 @@
 package me.jrmensah.roboresumesec;
 
+import me.jrmensah.roboresumesec.resume.Resume;
+import me.jrmensah.roboresumesec.skills.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,6 +39,7 @@ public class MainController {
         return "index";
     }
 
+
     @RequestMapping("/")
     public String index()
         {
@@ -55,6 +58,16 @@ public class MainController {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String username = principal.getName();
         return "secure";
+    }
+
+    @RequestMapping ("/searchbyskill")
+    public String SearchResult(){
+        //Get Names matching a string
+        Iterable<Skill> expertise = skillRepository.findAllBySkillContainingIgnoreCase("");
+        for (UserData user : userService){
+
+
+        }
     }
 
 
