@@ -60,7 +60,7 @@ public class MainController {
         model.addAttribute("Experience:"+ " "+ workTitle +" "+workplace+ " " +date+" "+duty+" "+duty+" ");
 
         //Print out skills and level of proficiency
-        model.addAttribute("Skills:"+" "+skill+ " "+"," +level);
+        model.addAttribute("Skills:"+" "+skill+ " "+"," +level+ " ");
         model.addAttribute(new Resume());
         return "user";
     }
@@ -85,14 +85,31 @@ public class MainController {
         return "secure";
     }
 
-    @RequestMapping ("/search")
-    public String SearchResult(){
-        //Get Names matching a string
-        Iterable<Resume> resume = resumeRepository.findAllBySkillContainingIgnoreCase("");
-        for (UserData user : users){
+    @RequestMapping ("/dosearchbyname")
+    public String doSearchByFirst(@RequestParam("first") String firstName, String lastName, Model model) {
+        model.addAttribute(firstName.findAllByFirst(firstName));
+        model.addAttribute(lastName.findAllByLast(lastName));
+
+        return "user";
+    }
+
+    @RequestMapping ("/searchbyschool")
+    public String doSearchBySchool(@RequestParam("school") String school, Model model) {
+        model.addAttribute(school.findAllBySchool(school));
+        return "user";
+    }
+
+    @RequestMapping ("/searchbyworkplace")
+    public String doSearchByCompany(@RequestParam("workplace") String workplace, Model model) {
+        model.addAttribute(workplace.findAllByWorkplace(workplace));
+        return "user";
+    }
 
 
-        }
+    @RequestMapping ("/searchbyskill")
+    public String doSearchBySkill(@RequestParam("skill") String skill, Model model) {
+        model.addAttribute(skill.findAllBySkill(skill));
+        return "user";
     }
 
 

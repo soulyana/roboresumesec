@@ -1,5 +1,7 @@
 package me.jrmensah.roboresumesec;
 
-public interface ResumeRepository {
-    void save(Resume resume);
+import org.springframework.data.repository.CrudRepository;
+
+public interface ResumeRepository extends CrudRepository<Resume, Long> {
+
 }
