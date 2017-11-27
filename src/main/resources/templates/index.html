@@ -1,31 +1,118 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="www.thymeleaf.org/extras/spring-security">
-<head th:replace="fragments/base::headstuff" lang="en">
-    <meta charset="UTF-8"/>
-    <title>ConnectUp</title>
+<html lang="en" xmlns:th="www.thymeleaf.org"  xmlns:sec="www.thymeleaf.org/extras/spring-security">
+<head th:replace="base::headstuff">
+
 </head>
 <body>
-<h1>Welcome to ConnectUp, home of the RoboResume!</h1>
-<h2>Insecure Page</h2>
-<div sec:authorize="isAuthenticated()">
-    This content is only shown to authenticated users.<br />
-    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
-        This content is only show to administrators.
-    </div>
-    <div sec:authorize="hasAuthority('ROLE_USER')">
-        This content is only show to users.
-    </div>
-    Logged user: <span sec:authentication="name">The value of the "name" property of the
-                    authentication object should appear here.</span><br/>
-    Roles:<span sec:authentication="principal.authorities">
-    [ROLE_USER, ROLE_ADMIN]</span><br/><br/>
+
+<div th:replace="base::navbar">
+
 </div>
-<div sec:authorize="isAnonymous()">
-    This content is only shown to anonymous users.
+
+
+<div class = "section">
+    <div class="container">
+
+        <h3>SEARCH BY</h3>
+
+        <form th:action = "@{/searchbyfirstName}" id = "firstform" th:object = "${resume}" method = "post">
+
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <label for="exampleInputFirst1">First Name</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="exampleInputFirst1" placeholder=First Name" th:field="*{firstName}"/>
+
+                    </div>
+                    <div class ="col-md-3">
+                        <input type="submit" value = "Submit"/>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </form>
+        <div  sec:authorize = "hasAuthority('RECRUITER')">
+            <form th:action = "@{/searchbyworkplace}" id = "workplace" th:object = "${resume}" method = "post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputCompany1">Workplace</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="exampleInputCompany1" placeholder="Workplace" th:field="*{workplace}"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value = "Submit"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <form th:action = "@{/searchbylastName}" id = "lastform" th:object = "${resume}" method = "post">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="exampleInputLast1">Last Name</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="exampleInputLast1" placeholder="Last Name" th:field="*{lastName}"/>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" value = "Submit"/>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div  sec:authorize = "hasAuthority('RECRUITER')">
+            <form th:action = "@{/searchbycollege}" id = "college" th:object = "${resume}" method = "post" >
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputActionSchool1">College</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="exampleInputActionSchool1" placeholder=College" th:field="*{college}"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value = "Submit"/>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div sec:authorize = "hasAuthority('RECRUITER')">
+            <form th:action = "@{/searchbyskill}" id = "resume" th:object = "${resume}" method = "post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputActionSkill1">Skill</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="exampleInputActionSkill1" placeholder="skill" th:field="*{skill}"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value = "Submit"/>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </div>
-<a href="/login">Login Page</a>
-<a href="/logout">Logout Page</a>
-<a href="/register">Register Page</a>
-<a href="/secure">Secure Page</a>
+
+
 </body>
 </html>

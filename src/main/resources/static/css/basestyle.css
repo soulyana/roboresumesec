@@ -19,7 +19,7 @@
 .navbar-custom .navbar-nav > .active > a:focus,
 .navbar-custom .navbar-nav > .open >a {
     text-decoration: none;
-    background-color: darkolivegreen;
+    background-color: darkblue;
 }
 
 .navbar-custom .navbar-brand {
@@ -29,5 +29,9 @@
     background-color:#ecf0f1;
 }
 .navbar-custom .icon-bar {
-    background-color:#ecf0f1;
+
+}
+.intro{
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
 }

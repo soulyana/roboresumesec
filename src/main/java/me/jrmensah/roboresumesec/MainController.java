@@ -7,10 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -21,24 +18,26 @@ public class MainController {
 
     @Autowired
     private ResumeRepository resumeRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-//    @RequestMapping(value="/register", method = RequestMethod.GET)
-//    public String showRegistrationPage(Model model){
-//        model.addAttribute("user", new UserData("jjjschmidt@gmail.com", "john", "John", "Jingleheimer-Schmidt", true, "john"));
-//        return "registration";
-//    }
-//    @RequestMapping(value="/register", method = RequestMethod.POST)
-//    public String processRegistrationPage(@Valid @ModelAttribute("user") UserData user,
-//                                          BindingResult result, Model model) {
-//        model.addAttribute("user", new UserData("jjjschmidt@gmail.com", "john", "John", "Jingleheimer-Schmid", true, "john"));
-//        if (result.hasErrors()) {
-//            return "registration";
-//        } else {
-//            userService.saveUser(user);
-//            model.addAttribute("message", "User Account Successfully Created");
-//        }
-//        return "index";
-//    }
+    @RequestMapping(value="/register", method = RequestMethod.GET)
+    public String showRegistrationPage(Model model){
+        model.addAttribute("user", new UserData("jjjschmidt@gmail.com", "john", "John", "Jingleheimer-Schmidt", true, "john"));
+        return "registration";
+    }
+    @RequestMapping(value="/register", method = RequestMethod.POST)
+    public String processRegistrationPage(@Valid @ModelAttribute("user") UserData user,
+                                          BindingResult result, Model model) {
+        model.addAttribute("user", new UserData("jjjschmidt@gmail.com", "john", "John", "Jingleheimer-Schmid", true, "john"));
+        if (result.hasErrors()) {
+            return "registration";
+        } else {
+            userRepository.save(user);
+            model.addAttribute("message", "User Account Successfully Created");
+        }
+        return "index";
+    }
 
 
     @RequestMapping("/")
@@ -73,8 +72,9 @@ public class MainController {
     }
 
     @RequestMapping("/login")
-    public String login() {
-        return "login";
+    public String login()
+    {
+        return "index";
     }
 
     @RequestMapping("/secure")
@@ -131,7 +131,9 @@ public class MainController {
     }
 
     @RequestMapping("/logout")
-    public String logout() {
+    public String logout()
+    {
+
         return "login";
     }
 }

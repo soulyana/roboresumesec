@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headstuff" lang="en">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/basestyle.css"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"/>
+
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">ConnectUp</title>
+</head>
+<body>
+<nav role="navigation" id="main-nav" class="cf container">
+    <div id="login" class="top-level-list-item login">
+        <a href="#" class="top-level-link">Login</a>
+        <div class="dropdown-menu">
+            <span class="arrow"></span>
+        </div>
+    </div>
+    <ul class="global-nav">
+        <li class="top-level-list-item about-us">
+            <a href="/register" class="top-level-link">Register</a>
+            <div class="dropdown-menu light">
+                <span class="arrow"></span>
+                <p>This is some information about this thing.</p>
+            </div>
+        </li>
+        <li class="top-level-list-item contact-us">
+            <a href="/resumeform" class="top-level-link">Add a Resume</a>
+        <li class="top-level-list-item ss-write">
+            <a href="/admin" class="top-level-link">Recruiter's Page</a>
+        </li>
+        <li class="top-level-list-item ss-write">
+            <a href="user.html" class="top-level-link"><input type="text" placeholder="Search.."> <button type="Submit"                                         class="btn btn-default">Submit</button></a>
+        </li>
+    </ul>
+    <ul class="primary-nav">
+        <li class="top-level-list-item personal">
+            <a href="depositform.html" class="top-level-link">Jobs List</a>
+        <li class="top-level-list-item business">
+            <a href="withdrawalform.html" class="top-level-link">Recent Job Postings</a>
+        <li class="top-level-list-item real-estate">
+            <a href="transactionpage.html" class="top-level-link">News</a>
+        <li class="top-level-list-item real-estate">
+
+        <li class="break"></li>
+    </ul>
+</nav>
+<div class="wrap" id="wrap">
+    <header class="cf">
+        <a href="#menu" class="menu-button"><img src="https://s.cdpn.io/35376/nav-icon.svg" /></a>
+        <h1 class= "ConnectUp">ConnectUp</h1>
+
+        <a href="#login" class="login-button">
+            <img src="https://s.cdpn.io/35376/avatar-icon_1.svg"/></a>
+    </header>
+    <section class="container" style="img-align: left">
+        <img src="https://images.unsplash.com/photo-1500316124030-4cffa46f10f0?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt= "Blue Dollars" width="250" height="150"/>
+        <img src="https://c1.staticflickr.com/8/7763/26794907910_fc7fbe3be6_b.jpg" alt= "Working on Laptop" width="250" height="150"/>
+        <img src="https://media.defense.gov/2012/Mar/13/2000170433/670/394/0/120307-F-JL266-067.JPG" alt= "On Duty" width="250" height="150"/>
+        <img src="https://images.unsplash.com/photo-1494707924465-e1426acb48cb?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt= "Teamwork" width="250" height="150"/>
+
+        <p class="intro"> Welcome to ConnectUp, home of the RoboResume! At ConnectUp, we assist job seekers in finding suitable employment, by you to recruiters who are looking for candidates to fill in jobs.
+            You can add a resume and search for a recruiter to help with your job search. You can also click on our links above to find what jobs are open and news on how to improve your chances to getting hired.</p>
+    </section>
+</div>
+</nav
+</body>
+</html>
