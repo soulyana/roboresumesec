@@ -11,7 +11,7 @@ public interface ResumeRepository extends CrudRepository<Resume, Long> {
     public List<Resume> findAllByFirstName(String firstName);
     public List<Resume> findAllByLastName(String lastName);
 
-    public List<Resume> findAllBySchool(String School);
+    public List<Resume> findAllByCollege(String college);
 
     public List<Resume> findAllByWorkplace(String workplace);
     public List<Resume> findAllBySkill(String skill);

@@ -99,9 +99,9 @@ public class MainController {
         return "user";
     }
 
-    @RequestMapping("/searchbyschool")
-    public String searchBySchool(@RequestParam("school") String school, Model model) {
-        model.addAttribute(resumeRepository.findAllBySchool(school));
+    @RequestMapping("/searchbycollege")
+    public String searchBySchool(@RequestParam("school") String college, Model model) {
+        model.addAttribute(resumeRepository.findAllByCollege(college));
         return "user";
     }
 
