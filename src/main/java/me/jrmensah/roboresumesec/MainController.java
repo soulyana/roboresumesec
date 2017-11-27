@@ -39,9 +39,9 @@ public class MainController {
         return "index";
     }
 
-
     @RequestMapping("/")
-    public String index() {
+    public String index()
+    {
         return "index";
     }
 
@@ -74,7 +74,7 @@ public class MainController {
     @RequestMapping("/login")
     public String login()
     {
-        return "index";
+        return "login";
     }
 
     @RequestMapping("/secure")

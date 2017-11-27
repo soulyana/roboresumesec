@@ -1,10 +1,118 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org"  xmlns:sec="www.thymeleaf.org/extras/spring-security">
 <head th:replace="base::headstuff">
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+
 </head>
-    <body>
-        <h2>Admin Page</h2>
-    </body>
+<body>
+
+<div th:replace="base::navbar">
+
+</div>
+
+
+<div class = "section">
+    <div class="container">
+
+        <h3>SEARCH BY</h3>
+
+        <form th:action = "@{/searchbyfirstName}" id = "firstform" th:object = "${resume}" method = "post">
+
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <label for="exampleInputFirst1">First Name</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="exampleInputFirst1" placeholder="First Name"/>
+
+                    </div>
+                    <div class ="col-md-3">
+                        <input type="submit" value = "Submit"/>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </form>
+        <div  sec:authorize = "hasAuthority('RECRUITER')">
+            <form th:action = "@{/searchbyworkplace}" id = "workplace" th:object = "${resume}" method = "post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputCompany1">Workplace</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="exampleInputCompany1" placeholder="Workplace"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value = "Submit"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <form th:action = "@{/searchbylastName}" id = "lastform" th:object = "${resume}" method = "post">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="exampleInputLast1">Last Name</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="exampleInputLast1" placeholder="Last Name"/>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" value = "Submit"/>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div  sec:authorize = "hasAuthority('RECRUITER')">
+            <form th:action = "@{/searchbycollege}" id = "college" th:object = "${resume}" method = "post" >
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputActionSchool1">College</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="exampleInputActionSchool1" placeholder="College"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value = "Submit"/>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div sec:authorize = "hasAuthority('RECRUITER')">
+            <form th:action = "@{/searchbyskill}" id = "resume" th:object = "${resume}" method = "post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputActionSkill1">Skill</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="exampleInputActionSkill1" placeholder="Skill"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value = "Submit"/>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
 </html>
