@@ -15,6 +15,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    private SSUserDetailsService userDetailsService;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Override
@@ -25,18 +28,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
-                .authorizeRequests().antMatchers("/css/**").permitAll()
-                .antMatchers("/searchbyname,/searchbyworkplace,/searchbyschool,/searchbyskill").hasAuthority("RECRUITER")
+                .authorizeRequests()
+                .antMatchers("/","/h2-console/**","/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .formLogin().loginPage("/login").permitAll()
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login")
-                .permitAll()
+                .logoutSuccessUrl("/login").permitAll().permitAll()
                 .and()
                 .httpBasic();
 
@@ -48,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {
+        throws Exception {
         auth.userDetailsService(userDetailsServiceBean());
     }
 

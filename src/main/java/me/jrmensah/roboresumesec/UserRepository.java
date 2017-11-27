@@ -1,8 +1,7 @@
 package me.jrmensah.roboresumesec;
 
-import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<UserData, Long>{
+public interface UserRepository {
     UserData findByUsername(String username);
     UserData findByEmail(String email);
     Long countByEmail(String email);

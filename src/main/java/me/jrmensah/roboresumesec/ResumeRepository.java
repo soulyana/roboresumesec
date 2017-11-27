@@ -2,6 +2,7 @@ package me.jrmensah.roboresumesec;
 
 import org.springframework.data.repository.CrudRepository;
 
+<<<<<<< HEAD
 import java.util.List;
 
 public interface ResumeRepository extends CrudRepository<Resume, Long> {
@@ -17,4 +18,8 @@ public interface ResumeRepository extends CrudRepository<Resume, Long> {
     public List<Resume> findAllBySkill(String skill);
 
 
+=======
+public interface ResumeRepository extends CrudRepository<Resume, Long> {
+
+>>>>>>> origin/master
 }

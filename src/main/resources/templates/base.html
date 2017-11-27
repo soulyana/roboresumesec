@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headstuff" lang="en">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"/>
+
+    <meta charset="UTF-8">
+    <title th:text="${title}">RoboResume</title>
+</head>
+<body>
+<nav th:fragment = "thenavbar" class="navbar navbar-default">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">ConnectUp</a>
+    </div>
+    <ul class="nav navbar-nav">
+<li class="active"><a href="#">Home</a></li>
+<li><a th:href="@{/login}">Login</a></li>
+<li><a th:href="@{/register}">Register</a></li>
+<li><a th:href="@{/add}">Add a Resume</a></li>
+<li><a th:href="@{/admin}">Recruiter's Page</a></li>
+
+    </ul>
+</div>
+</nav>
+</body>
+</html>
