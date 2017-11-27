@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" >
+<head th:replace="main::headstuff">
+
+</head>
+<body>
+
+<div th:replace="main::navbar">
+
+</div>
+
+<div class = "container">
+
+    <div th:each = "resume: ${resumeList}">
+        <p th:utext = "${resume.first} +' ' +${resume.middle}+' '+ ${resume.last}">Resume</p>
+        <p th:utext = "${resume.email}"></p>
+        <h5>Education</h5>
+        <p th:utext = "${resume.degree}+' in '+${resume.field}+' &lt;br/&gt;'+${resume.school}+', '+${resume.yearGrad}">resume</p>
+        <h5>Experience</h5>
+        <p th:utext=" ${resume.workTitle} +' &lt;br/&gt; ' +${resume.company}+', '+${resume.workDur}+'&lt;br/&gt; '+ ${resume.duty}">resume</p>
+        <h5>Skills</h5>
+        <p th:utext="${resume.skill}+ ', '+ ${resume.proficiency}">resume</p>
+    </div>
+
+
+</div>
+</body>
+
+</html>

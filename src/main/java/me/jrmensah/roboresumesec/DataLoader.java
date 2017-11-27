@@ -9,19 +9,30 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     @Autowired
+    UserRepository userRepository;
+
+    @Autowired
     ResumeRepository resumeRepository;
+
+    @Autowired
+    RoleRepository roleRepository;
 
     @Override
     public void run(String...strings) throws Exception{
         System.out.println("Loading data...");
 
 
+        roleRepository.save(new UserRole("USER"));
+        roleRepository.save(new UserRole("RECRUITER"));
 
-       Resume resume = new Resume("John"," J","Jingleheimer-Schmidt","jjjschmidt@gmail.com","BS","Psychology","UMaryland","2002","PHP","Amtrak", "Developer", "duty1","duty2", "highly skilled");
-       resumeRepository.save(resume);
+        UserRole adminRole = roleRepository.findByRole("RECRUITER");
+        UserRole userRole = roleRepository.findByRole("USER");
 
-       resume = new Resume("Jane","B","Doe","jbdoe@gmail.com","MS", "Software Engineering", "Johns Hopkins U","2005","Ruby on Rails","DCPS","Business Analyst","duty1","duty2", "proficient" );
-       resumeRepository.save(resume);
+//       Resume resume = new Resume("John"," J","Jingleheimer-Schmidt","jjjschmidt@gmail.com","BS","Psychology","UMaryland","2002","PHP","Amtrak", "Developer", "duty1","duty2", "highly skilled");
+//       resumeRepository.save(resume);
+//
+//       resume = new Resume("Jane","B","Doe","jbdoe@gmail.com","MS", "Software Engineering", "Johns Hopkins U","2005","Ruby on Rails","DCPS","Business Analyst","duty1","duty2", "proficient" );
+//       resumeRepository.save(resume);
 
 
 

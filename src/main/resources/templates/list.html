@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="main::headstuff">
+</head>
+<body>
+
+<div th:replace="main::navbar">
+
+</div>
+
+
+<div class = "container">
+    <div class = "table-responsive">
+        <table class="table">
+            <tr>
+                <th class="text-center" height="80">First</th>
+                <th class="text-center" height="80">Middle</th>
+                <th class="text-center" height="80">Last</th>
+                <th class="text-center" height="80">Degree</th>
+                <th class="text-center" height="80">Major</th>
+                <th class="text-center" height="80">College</th>
+                <th class="text-center" height="80">Year</th>
+                <th class="text-center" height="80">Skill</th>
+                <th class="text-center" height="80">Workplace</th>
+                <th class="text-center" height="80">Email</th>
+                <th class="text-center" height="80">Work Title</th>
+                <th class="text-center" height="80">Date</th>
+                <th class="text-center" height="80">Duty</th>
+                <th class="text-center" height="80">Level</th>
+            </tr>
+
+
+
+
+            <th:block th:each = "resume: ${resumeList}">
+                <tr>
+                    <td class="text-center">  <p th:utext = "${resume.firstName} " height="80">Transaction  </p>
+
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.middleInit } " height="80">Transaction  </p>
+                    </td>
+
+                    <td  class="text-center"><p th:utext = "${resume.lastName} " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.degree } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.major } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.college} " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.year} " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.skill } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.workplace } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.email } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.workTitle } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.date } " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.duty} " height="80">Transaction  </p>
+                    </td>
+                    <td class="text-center"><p th:utext = "${resume.skill} " height="80">Transaction  </p>
+                    </td>
+
+                </tr>
+            </th:block>
+
+        </table>
+
+    </div>
+</div>
+</body>

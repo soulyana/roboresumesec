@@ -52,10 +52,12 @@ public class Resume {
     @Size(min=3)
     private String level;
 
-    public Resume(String john, String s, String s1, String s2, String bs, String psychology, String uMaryland, String s3, String php, String amtrak, String developer, String duty1, String duty2, String highly_skilled) {
+
+    public Resume() {
+
     }
 
-    public Resume(String firstName, String middleInit, String lastName, String email, String college, String degree, String major, String year, String skill, String workplace, String workTitle, String duty, String level) {
+    public Resume(String firstName, String middleInit, String lastName, String email, String college, String degree, String major, String year, String skill, String workplace, String workTitle, String duty, String level, String highly_skilled) {
         this.firstName = firstName;
         this.middleInit = middleInit;
         this.lastName = lastName;
@@ -71,9 +73,6 @@ public class Resume {
         this.level = level;
     }
 
-    public Resume() {
-
-    }
 
     public int getId() {
         return id;

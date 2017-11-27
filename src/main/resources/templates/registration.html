@@ -31,8 +31,8 @@
     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Confirm Password Error</span>
 </strong></mark>
     <input type="text" id="password" placeholder="Password" th:field="*{Password}" /><br />
-    Are you a:<form><input type="radio" name="/user" value="jobseeker">Job Seeker
-                    <input type="radio" name="/admin" value="recruiter">Recruiter
+    Are you a:<form><input type="radio" name="user" value="jobseeker">Job Seeker
+                    <input type="radio" name="admin" value="recruiter">Recruiter
               </form><br />
 
     By checking this box, you agree to our Terms and Services.
