@@ -2,6 +2,8 @@ package me.jrmensah.roboresumesec;
 
 
 
+
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity

@@ -19,7 +19,7 @@
 .navbar-custom .navbar-nav > .active > a:focus,
 .navbar-custom .navbar-nav > .open >a {
     text-decoration: none;
-    background-color: blu;
+    background-color: darkolivegreen;
 }
 
 .navbar-custom .navbar-brand {

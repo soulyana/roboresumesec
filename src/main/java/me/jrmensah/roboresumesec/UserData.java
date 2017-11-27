@@ -1,18 +1,19 @@
 package me.jrmensah.roboresumesec;
 
 
-
-
-@Entity
-@Table(name="USER_DATA");
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
+@Entity
+@Table(name="USER_DATA")
 public class UserData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    
+
+    @NotNull
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -26,12 +27,12 @@ public class UserData {
     private String lastName;
 
     @Column(name = "enabled")
-    private String enabled;
+    private boolean enabled;
 
     @Column(name = "username")
     private String username;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(joinColumns = @JoinColumn(name= "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<UserRole> roles;
@@ -46,7 +47,7 @@ public class UserData {
         this.roles = roles;
     }
 
-    public UserData(String email, String password, String firstName, String lastName, String enabled, String username, Collection<UserRole> roles) {
+    public UserData(String email, String password, String firstName, String lastName, boolean enabled, String username, Collection<UserRole> roles) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -96,14 +97,6 @@ public class UserData {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(String enabled) {
-        this.enabled = enabled;
     }
 
     public String getUsername() {

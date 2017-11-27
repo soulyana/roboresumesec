@@ -1,24 +1,23 @@
 package me.jrmensah.roboresumesec;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
 
-@Transactional
-@Service
 public class SSUserDetailsService implements UserDetailsService {
-
+    private static final Logger LOGGER= LoggerFactory.getLogger(SSUserDetailsService.class);
     private UserRepository userRepository;
 
-    public SSUserDetailsService(UserRepository userRepository){
+    public SSUserDetailsService(UserRepository userRepository)
+    {
         this.userRepository=userRepository;
     }
 
@@ -28,7 +27,9 @@ public class SSUserDetailsService implements UserDetailsService {
         try{
             UserData user = userRepository.findByUsername(username);
             if(user == null){
+                LOGGER.debug("Username not found");
                 return null;
+
             }
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
@@ -46,7 +47,7 @@ public class SSUserDetailsService implements UserDetailsService {
             GrantedAuthority grantedAuthority
                     = new SimpleGrantedAuthority(role.getRole());
             authorities.add(grantedAuthority);
-        }
+        }LOGGER.debug("User authorities" + authorities.toString());
         return authorities;
     }
 
